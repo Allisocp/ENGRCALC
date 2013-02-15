@@ -12,12 +12,34 @@
 		<h1 style="font-size:20px">So let's start off easy...with <i>Pythagorean's Theorem</i>!!</h1>
 			<p><b><u>The Pythagorean Theorem</u></b></p>
 				<img src="http://www.platinumgmat.com/global/images/study_guide/pythagorean_theorem1.gif?v=1"; style="background-color:white"/>
-					<p>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p>
-						<!--The above is a fancy way of writting a^2 + b^2 = c^2 -->
-					<table>
-						<th>Boom</th>
-					</table>
-			</body>
+					<form name="Pythag">
+						<p><label>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></label></p>
+							<!--The above is a fancy way of writting a^2 + b^2 = c^2 -->
+						<p><input type="text" name="input" placeholder="a value" style="width:50px"></p>
+						<p><input type="text" name="input" placeholder="b value" style="width:50px"></p>
+						<!--<p><input type="text" name="input" placeholder="c value" style="width:50px"></p>-->
+						<p><input type="button" name="submit" value="Calculate" onClick="calculate();"></p>
+							<div id="output"></div>				
+					</form>
+					<script type="text/javascript">
+						function calculate()
+							// Function to determine the c value
+						{
+						var mpg=document.forms["converter"]["input"].value;
+						if (isNaN(mpg) || mpg == "") {
+							alert("MPG must be an integer!")
+							return false;
+						}
+						else {
+						var kpl = (1.609* mpg) / 3.78541;
+						document.getElementById("output").innerHTML = 
+							"<p>" + mpg + " MPG is approximately " + Math.round(kpl) + 
+							" KPL</p>";
+							return true;
+							}
+						}
+					</script>
+	</body>
 
 
 </html>
